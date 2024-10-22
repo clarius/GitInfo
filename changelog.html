@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/GitInfo/assets/css/style.css?v=e2a40698625e7f6bc3335c1049c940f1c9c8b259">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Changelog | GitInfo</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Changelog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Git and SemVer Info from MSBuild, C# and VB" />
+<meta property="og:description" content="Git and SemVer Info from MSBuild, C# and VB" />
+<meta property="og:site_name" content="GitInfo" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Changelog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Git and SemVer Info from MSBuild, C# and VB","headline":"Changelog","url":"/GitInfo/changelog.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/GitInfo/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+            <a id="forkme_banner" href="https://github.com/devlooped/GitInfo">View on GitHub</a>
+          
+
+          <h1 id="project_title">GitInfo</h1>
+          <h2 id="project_tagline">Git and SemVer Info from MSBuild, C# and VB</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="changelog">Changelog</h1>
+
+<h2 id="v335-2024-05-13"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.5">v3.3.5</a> (2024-05-13)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.3.4...v3.3.5">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Can not find all git info when on branch with ‘.’ in the name <a href="https://github.com/devlooped/GitInfo/issues/328">#328</a></li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ThisAssembly.Git.IsDirty</code> is included when <code class="language-plaintext highlighter-rouge">GitThisAssembly</code> is false <a href="https://github.com/devlooped/GitInfo/issues/337">#337</a></li>
+  <li>Update to 3.3.4 via Nuget crashes <a href="https://github.com/devlooped/GitInfo/issues/335">#335</a></li>
+  <li>Git.Branch always gives [HEAD] for detached HEAD commit. <a href="https://github.com/devlooped/GitInfo/issues/333">#333</a></li>
+  <li>Do not emit ThisAssembly.Git.IsDirty when  GitThisAssembly is false <a href="https://github.com/devlooped/GitInfo/pull/338">#338</a> (@kzu)</li>
+</ul>
+
+<h2 id="v334-2024-02-15"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.4">v3.3.4</a> (2024-02-15)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.3.3...v3.3.4">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>GetInfo 3.3.3 fails like #273 (‘ThisAssembly.Git’ is inaccessible…) on non-SDK style .csproj, 2.3.0 works fine <a href="https://github.com/devlooped/GitInfo/issues/326">#326</a></li>
+  <li>Weird race condition with targets <a href="https://github.com/devlooped/GitInfo/issues/321">#321</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Fix race conditions <a href="https://github.com/devlooped/GitInfo/pull/330">#330</a> (@gitfool)</li>
+</ul>
+
+<h2 id="v333-2023-08-30"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.3">v3.3.3</a> (2023-08-30)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.3.2...v3.3.3">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>parse(’’)” cannot be evaluated. version string portion was too short or too long <a href="https://github.com/devlooped/GitInfo/issues/300">#300</a></li>
+  <li>Shield from invalid git version <a href="https://github.com/devlooped/GitInfo/pull/313">#313</a> (@kzu)</li>
+</ul>
+
+<h2 id="v332-2023-08-30"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.2">v3.3.2</a> (2023-08-30)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.3.1...v3.3.2">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>LangVersion latest and using 11.0 constants  <a href="https://github.com/devlooped/GitInfo/issues/311">#311</a></li>
+  <li>Privacy about SponsorLink with GitInfo <a href="https://github.com/devlooped/GitInfo/issues/299">#299</a></li>
+  <li>Linux compatibility issues? <a href="https://github.com/devlooped/GitInfo/issues/298">#298</a></li>
+  <li>Bump ThisAssembly to get fix for C#11 raw strings <a href="https://github.com/devlooped/GitInfo/pull/312">#312</a> (@kzu)</li>
+</ul>
+
+<h2 id="v331-2023-08-11"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.1">v3.3.1</a> (2023-08-11)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.3.0...v3.3.1">Full Changelog</a></p>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Bump to downstream ThisAssembly without SponsorLink <a href="https://github.com/devlooped/GitInfo/pull/305">#305</a> (@kzu)</li>
+</ul>
+
+<h2 id="v330-2023-08-11"><a href="https://github.com/devlooped/GitInfo/tree/v3.3.0">v3.3.0</a> (2023-08-11)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.2.0...v3.3.0">Full Changelog</a></p>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Remove current implementation of SponsorLink for now <a href="https://github.com/devlooped/GitInfo/pull/302">#302</a> (@kzu)</li>
+</ul>
+
+<h2 id="v320-2023-08-11"><a href="https://github.com/devlooped/GitInfo/tree/v3.2.0">v3.2.0</a> (2023-08-11)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.1.2...v3.2.0">Full Changelog</a></p>
+
+<h2 id="v312-2023-08-02"><a href="https://github.com/devlooped/GitInfo/tree/v3.1.2">v3.1.2</a> (2023-08-02)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.1.1...v3.1.2">Full Changelog</a></p>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>replace all invalid chars in semver string with “-“ <a href="https://github.com/devlooped/GitInfo/pull/295">#295</a> (@smorokin)</li>
+</ul>
+
+<h2 id="v311-2023-07-07"><a href="https://github.com/devlooped/GitInfo/tree/v3.1.1">v3.1.1</a> (2023-07-07)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.1.0...v3.1.1">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>IsDirty is no more constant <a href="https://github.com/devlooped/GitInfo/issues/287">#287</a></li>
+  <li>IsDirty always false <a href="https://github.com/devlooped/GitInfo/issues/285">#285</a></li>
+</ul>
+
+<h2 id="v310-2023-06-05"><a href="https://github.com/devlooped/GitInfo/tree/v3.1.0">v3.1.0</a> (2023-06-05)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.7...v3.1.0">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>Ensure IsDirty is a constant <a href="https://github.com/devlooped/GitInfo/pull/288">#288</a> (@kzu)</li>
+</ul>
+
+<h2 id="v307-2023-06-05"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.7">v3.0.7</a> (2023-06-05)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.6...v3.0.7">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Branch name is wrong when compiling from a git worktree <a href="https://github.com/devlooped/GitInfo/issues/189">#189</a></li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>Version 3.0.5: Error ‘ThisAssembly.Git’ is inaccessible due to its protection level <a href="https://github.com/devlooped/GitInfo/issues/273">#273</a></li>
+</ul>
+
+<h2 id="v306-2023-05-05"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.6">v3.0.6</a> (2023-05-05)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.5...v3.0.6">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Allow forcing templated code gen for C# <a href="https://github.com/devlooped/GitInfo/pull/269">#269</a> (@kzu)</li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>The name ‘IsDirtyString’ does not exist in the current context <a href="https://github.com/devlooped/GitInfo/issues/281">#281</a></li>
+  <li>Update to version 3.x breaks Avalonia projects <a href="https://github.com/devlooped/GitInfo/issues/260">#260</a></li>
+  <li>CSC : error SL01: SponsorLink has been incorrectly configured <a href="https://github.com/devlooped/GitInfo/issues/251">#251</a></li>
+  <li>Fix missing code from missing dependency <a href="https://github.com/devlooped/GitInfo/pull/282">#282</a> (@kzu)</li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Additional bump to get complete fix <a href="https://github.com/devlooped/GitInfo/pull/283">#283</a> (@kzu)</li>
+</ul>
+
+<h2 id="v305-2023-03-22"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.5">v3.0.5</a> (2023-03-22)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.4...v3.0.5">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>ThisAssemblyNamespace is ignored when updating from 2.3.0 to 3.0.4 <a href="https://github.com/devlooped/GitInfo/issues/258">#258</a></li>
+  <li>Bump to ThisAssembly version that doesn’t run so early <a href="https://github.com/devlooped/GitInfo/pull/268">#268</a> (@kzu)</li>
+  <li>Fix IsDirty generator when using a custom namespace <a href="https://github.com/devlooped/GitInfo/pull/267">#267</a> (@kzu)</li>
+  <li>Fix backs-compat generation when custom namespace in use <a href="https://github.com/devlooped/GitInfo/pull/266">#266</a> (@kzu)</li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>fix typo ‘alwas’ with ‘always’ <a href="https://github.com/devlooped/GitInfo/pull/257">#257</a> (@codingdave)</li>
+  <li>Set AzureDevOps branch name also for PR <a href="https://github.com/devlooped/GitInfo/pull/256">#256</a> (@trejjam)</li>
+</ul>
+
+<h2 id="v304-2023-02-22"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.4">v3.0.4</a> (2023-02-22)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.2...v3.0.4">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>Branch Names with ‘/’ generate invalid versions <a href="https://github.com/devlooped/GitInfo/issues/244">#244</a></li>
+  <li>V3 IsDirty is a string <a href="https://github.com/devlooped/GitInfo/issues/243">#243</a></li>
+  <li>Migration from v2 -&gt; v3 <a href="https://github.com/devlooped/GitInfo/issues/240">#240</a></li>
+  <li>Reintroduce IsDirty boolean property from 2.3 <a href="https://github.com/devlooped/GitInfo/pull/249">#249</a> (@kzu)</li>
+  <li>Replace / and \ in branches with dashes when setting default Version <a href="https://github.com/devlooped/GitInfo/pull/248">#248</a> (@kzu)</li>
+</ul>
+
+<h2 id="v302-2023-02-18"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.2">v3.0.2</a> (2023-02-18)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.1...v3.0.2">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>💜 Bump SponsorLink for better privacy <a href="https://github.com/devlooped/GitInfo/pull/242">#242</a> (@kzu)</li>
+</ul>
+
+<h2 id="v301-2023-02-17"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.1">v3.0.1</a> (2023-02-17)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.0...v3.0.1">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Make sure we don’t surface SponsorLink as an API <a href="https://github.com/devlooped/GitInfo/pull/241">#241</a> (@kzu)</li>
+</ul>
+
+<h2 id="v300-2023-02-16"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.0">v3.0.0</a> (2023-02-16)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.0-rc...v3.0.0">Full Changelog</a></p>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Rename Analyzer &gt; GitInfo.CodeAnalysis <a href="https://github.com/devlooped/GitInfo/pull/233">#233</a> (@kzu)</li>
+</ul>
+
+<h2 id="v300-rc-2023-02-09"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.0-rc">v3.0.0-rc</a> (2023-02-09)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v3.0.0-alpha...v3.0.0-rc">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Set Version and PackageVersion to a default value <a href="https://github.com/devlooped/GitInfo/pull/232">#232</a> (@kzu)</li>
+</ul>
+
+<h2 id="v300-alpha-2023-02-07"><a href="https://github.com/devlooped/GitInfo/tree/v3.0.0-alpha">v3.0.0-alpha</a> (2023-02-07)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v2.3.0...v3.0.0-alpha">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Stale info on unrelated changes <a href="https://github.com/devlooped/GitInfo/issues/186">#186</a></li>
+  <li>Should <code class="language-plaintext highlighter-rouge">$(GitDefaultBranch)</code> now default to <code class="language-plaintext highlighter-rouge">main</code> rather than <code class="language-plaintext highlighter-rouge">master</code> <a href="https://github.com/devlooped/GitInfo/issues/167">#167</a></li>
+  <li>Integrate better with SourceLink and built-in support in the SDK <a href="https://github.com/devlooped/GitInfo/issues/128">#128</a></li>
+  <li>Switch to ThisAssembly.Constants for C# <a href="https://github.com/devlooped/GitInfo/pull/229">#229</a> (@kzu)</li>
+  <li>Properly detect HEAD changes for incremental builds <a href="https://github.com/devlooped/GitInfo/pull/226">#226</a> (@kzu)</li>
+  <li>Change GitDefaultBranch to <code class="language-plaintext highlighter-rouge">main</code> instead of <code class="language-plaintext highlighter-rouge">master</code> <a href="https://github.com/devlooped/GitInfo/pull/225">#225</a> (@kzu)</li>
+  <li>Improve targets organization by moving ThisAssembly to another targets <a href="https://github.com/devlooped/GitInfo/pull/219">#219</a> (@kzu)</li>
+  <li>Switch to built-in .NET SDK AssemblyMetadata support <a href="https://github.com/devlooped/GitInfo/pull/218">#218</a> (@kzu)</li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>Missing Git Information with Docker build <a href="https://github.com/devlooped/GitInfo/issues/216">#216</a></li>
+  <li>Version issue with Multi-target projects <a href="https://github.com/devlooped/GitInfo/issues/202">#202</a></li>
+  <li>Git isDirty triggers rebuilds <a href="https://github.com/devlooped/GitInfo/issues/183">#183</a></li>
+  <li>GitInfo.cache collects warnings which leads to build errors <a href="https://github.com/devlooped/GitInfo/issues/91">#91</a></li>
+</ul>
+
+<p>:hammer: Other:</p>
+
+<ul>
+  <li>$(GitBranch) prop value is empty in .csproj file <a href="https://github.com/devlooped/GitInfo/issues/178">#178</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Delete removed define for assembly metadata <a href="https://github.com/devlooped/GitInfo/pull/220">#220</a> (@kzu)</li>
+</ul>
+
+<h2 id="v230-2022-11-18"><a href="https://github.com/devlooped/GitInfo/tree/v2.3.0">v2.3.0</a> (2022-11-18)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v2.2.1...v2.3.0">Full Changelog</a></p>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>make the gitinfo caches location configurable to be able to reuse the same information over several projects that are built <a href="https://github.com/devlooped/GitInfo/issues/190">#190</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Feature/use git info cache for all solution projects <a href="https://github.com/devlooped/GitInfo/pull/191">#191</a> (@tisis2)</li>
+</ul>
+
+<h2 id="v221-2022-11-16"><a href="https://github.com/devlooped/GitInfo/tree/v2.2.1">v2.2.1</a> (2022-11-16)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v2.2.0...v2.2.1">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>maybe: show better error msg if windows visual studio git outputs linux paths <a href="https://github.com/devlooped/GitInfo/issues/131">#131</a></li>
+  <li>Add release notes <a href="https://github.com/devlooped/GitInfo/issues/89">#89</a></li>
+  <li>Can the same be used for managed C++? If not create it? <a href="https://github.com/devlooped/GitInfo/issues/67">#67</a></li>
+  <li>Cake: Use within Cake <a href="https://github.com/devlooped/GitInfo/issues/48">#48</a></li>
+  <li>Doesn’t work with projects on SMB shares <a href="https://github.com/devlooped/GitInfo/issues/8">#8</a></li>
+  <li>Add section on how to set versions from MSBuild <a href="https://github.com/devlooped/GitInfo/pull/211">#211</a> (@kzu)</li>
+  <li>Fix “MSBuild customizations” misnomer &amp; add link to documentation <a href="https://github.com/devlooped/GitInfo/pull/206">#206</a> (@JimmyCushnie)</li>
+  <li>fix bug Branch name is wrong when compiling from a git worktree <a href="https://github.com/devlooped/GitInfo/pull/197">#197</a> (@li-zhixin)</li>
+  <li>Properly escape GitExe and CygPathExe for WSL <a href="https://github.com/devlooped/GitInfo/pull/195">#195</a> (@socram8888)</li>
+  <li>Update “dirty” file only when <code class="language-plaintext highlighter-rouge">GitIsDirty</code> changes <a href="https://github.com/devlooped/GitInfo/pull/184">#184</a> (@AmoreCadenza)</li>
+  <li>Fix of buildTransitive feature of package <a href="https://github.com/devlooped/GitInfo/pull/182">#182</a> (@PadreSVK)</li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>MSBuild variables don’t work for MAUI projects <a href="https://github.com/devlooped/GitInfo/issues/203">#203</a></li>
+  <li>Execution fails if using WSL and username contains spaces <a href="https://github.com/devlooped/GitInfo/issues/194">#194</a></li>
+  <li>delete <a href="https://github.com/devlooped/GitInfo/issues/193">#193</a></li>
+  <li>[Question] Commit Message <a href="https://github.com/devlooped/GitInfo/issues/185">#185</a></li>
+  <li>Build fails if <code class="language-plaintext highlighter-rouge">git config log.showSignature true</code> <a href="https://github.com/devlooped/GitInfo/issues/180">#180</a></li>
+  <li>Disable signatures when obtaining commit date - fixes #180 <a href="https://github.com/devlooped/GitInfo/pull/213">#213</a> (@socram8888)</li>
+</ul>
+
+<p>:hammer: Other:</p>
+
+<ul>
+  <li>Deleted <a href="https://github.com/devlooped/GitInfo/issues/181">#181</a></li>
+  <li>Publish new version to nuget.org <a href="https://github.com/devlooped/GitInfo/issues/159">#159</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>+M▼ includes <a href="https://github.com/devlooped/GitInfo/pull/200">#200</a> (@github-actions[bot])</li>
+</ul>
+
+<h2 id="v220-2021-08-25"><a href="https://github.com/devlooped/GitInfo/tree/v2.2.0">v2.2.0</a> (2021-08-25)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/v2.1.2...v2.2.0">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Add source repository information to package <a href="https://github.com/devlooped/GitInfo/issues/169">#169</a></li>
+  <li>Add support for nuget transitive dependencies (via PackageReference) <a href="https://github.com/devlooped/GitInfo/issues/154">#154</a></li>
+  <li>GitThisAssemblyMetadata documentation is confusing <a href="https://github.com/devlooped/GitInfo/issues/152">#152</a></li>
+  <li>Feature request: let _CommitDateFormat be configurable <a href="https://github.com/devlooped/GitInfo/issues/144">#144</a></li>
+  <li>Build error when the first commit on a new branch is a cherry pick <a href="https://github.com/devlooped/GitInfo/issues/133">#133</a></li>
+  <li>support for git worktree <a href="https://github.com/devlooped/GitInfo/issues/88">#88</a></li>
+  <li>Issue with GitIsDirty and GitCache <a href="https://github.com/devlooped/GitInfo/issues/60">#60</a></li>
+</ul>
+
+<p>:bug: Fixed bugs:</p>
+
+<ul>
+  <li>Handle add non-zero exit codes from Git <a href="https://github.com/devlooped/GitInfo/pull/147">#147</a> (@Therzok)</li>
+</ul>
+
+<p>:hammer: Other:</p>
+
+<ul>
+  <li>Project URL should be devlooped.github.io/GitInfo <a href="https://github.com/devlooped/GitInfo/issues/149">#149</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>🖆 Apply devlooped/oss template, nugetize and modernize <a href="https://github.com/devlooped/GitInfo/pull/168">#168</a> (@kzu)</li>
+  <li>Is dirty always check <a href="https://github.com/devlooped/GitInfo/pull/165">#165</a> (@freza-tm)</li>
+  <li>Add support for nuget transitive dependecy for .targets <a href="https://github.com/devlooped/GitInfo/pull/155">#155</a> (@PadreSVK)</li>
+  <li>Updating content readme.txt for issue #152 <a href="https://github.com/devlooped/GitInfo/pull/153">#153</a> (@daiplusplus)</li>
+  <li>Allowed git commit date format to be configured through GitCommitDateFormat property <a href="https://github.com/devlooped/GitInfo/pull/145">#145</a> (@tomcurran)</li>
+  <li>Add –always to default name-rev args, so a commit hash is used instead of ‘undefined’ <a href="https://github.com/devlooped/GitInfo/pull/132">#132</a> (@andersforsgren)</li>
+</ul>
+
+<h2 id="v212-2020-09-24"><a href="https://github.com/devlooped/GitInfo/tree/v2.1.2">v2.1.2</a> (2020-09-24)</h2>
+
+<p><a href="https://github.com/devlooped/GitInfo/compare/89d9e9d5e61e983f507cd1fd2133ee23dd3b6af2...v2.1.2">Full Changelog</a></p>
+
+<p>:sparkles: Implemented enhancements:</p>
+
+<ul>
+  <li>Option to exclude merges when calculating SemVerPatch <a href="https://github.com/devlooped/GitInfo/issues/124">#124</a></li>
+  <li>RepositoryUrl may contain username and password <a href="https://github.com/devlooped/GitInfo/issues/122">#122</a></li>
+  <li>Folder Syntax are not supported <a href="https://github.com/devlooped/GitInfo/issues/101">#101</a></li>
+  <li>Only consider version tags <a href="https://github.com/devlooped/GitInfo/issues/100">#100</a></li>
+  <li>Add “CheckinDate” to the ThisAssembly to be used in AssemblyInfo <a href="https://github.com/devlooped/GitInfo/issues/65">#65</a></li>
+  <li>Error when the path to file GitInfo.txt contains spaces <a href="https://github.com/devlooped/GitInfo/issues/13">#13</a></li>
+  <li>Include boolean indicating whether working tree is dirty <a href="https://github.com/devlooped/GitInfo/issues/10">#10</a></li>
+  <li>GitExe in the PATH should be first <a href="https://github.com/devlooped/GitInfo/issues/6">#6</a></li>
+  <li>Thoughts on including date information <a href="https://github.com/devlooped/GitInfo/issues/2">#2</a></li>
+</ul>
+
+<p>:hammer: Other:</p>
+
+<ul>
+  <li>Possibility to exclude tag refs from $(GitBranch) <a href="https://github.com/devlooped/GitInfo/issues/126">#126</a></li>
+  <li>“Unrecognized escape sequence” when remote url is a Windows path <a href="https://github.com/devlooped/GitInfo/issues/119">#119</a></li>
+  <li>GitSemVerPatch always 0 after update from 2.0.26 to 2.0.29 <a href="https://github.com/devlooped/GitInfo/issues/116">#116</a></li>
+  <li>Add GitSha override when building <a href="https://github.com/devlooped/GitInfo/issues/114">#114</a></li>
+  <li>Use MSBuild property to determine base version instead of external file <a href="https://github.com/devlooped/GitInfo/issues/113">#113</a></li>
+  <li>[Feature] Retrieve repository url <a href="https://github.com/devlooped/GitInfo/issues/109">#109</a></li>
+  <li>ASP.NET Core 3.1 GitThisAssemblyMetadata setting? <a href="https://github.com/devlooped/GitInfo/issues/108">#108</a></li>
+  <li>Change ThisAssembly access to Public <a href="https://github.com/devlooped/GitInfo/issues/107">#107</a></li>
+  <li>Include origin in git info <a href="https://github.com/devlooped/GitInfo/issues/103">#103</a></li>
+  <li>Can’t Get BaseVersion.Patch+1 <a href="https://github.com/devlooped/GitInfo/issues/99">#99</a></li>
+  <li>Build fails if <code class="language-plaintext highlighter-rouge">git config log.showSignature true</code> <a href="https://github.com/devlooped/GitInfo/issues/86">#86</a></li>
+  <li>Emit assembly attributes <a href="https://github.com/devlooped/GitInfo/issues/85">#85</a></li>
+  <li>Conflicts when using InternalsVisibleTo <a href="https://github.com/devlooped/GitInfo/issues/84">#84</a></li>
+  <li>Broken link <a href="https://github.com/devlooped/GitInfo/issues/83">#83</a></li>
+  <li>Incremental build is broken <a href="https://github.com/devlooped/GitInfo/issues/81">#81</a></li>
+  <li>dotnet tool <a href="https://github.com/devlooped/GitInfo/issues/79">#79</a></li>
+  <li>Question regarding ThisAssembly.Git.Tag - separate commit using a plus? <a href="https://github.com/devlooped/GitInfo/issues/78">#78</a></li>
+  <li>Is there a way to make GitInfo work with Xamarin Live Player <a href="https://github.com/devlooped/GitInfo/issues/77">#77</a></li>
+  <li>GitInfo.txt per project leaves GitSemVerPatch at zero <a href="https://github.com/devlooped/GitInfo/issues/76">#76</a></li>
+  <li>How to add pre-release information only if building from dev branches or on dev box <a href="https://github.com/devlooped/GitInfo/issues/70">#70</a></li>
+  <li>Default protection level of ThisAssembly <a href="https://github.com/devlooped/GitInfo/issues/69">#69</a></li>
+  <li>Info on target (release/debug/…)? <a href="https://github.com/devlooped/GitInfo/issues/68">#68</a></li>
+  <li>csproj example <a href="https://github.com/devlooped/GitInfo/issues/62">#62</a></li>
+  <li>Cannot use on OSX <a href="https://github.com/devlooped/GitInfo/issues/61">#61</a></li>
+  <li>Preffered Version Scheme <a href="https://github.com/devlooped/GitInfo/issues/59">#59</a></li>
+  <li>naming clash? “ThisAssembly” exists in Microsoft.Build.Utilities.v4.0 <a href="https://github.com/devlooped/GitInfo/issues/56">#56</a></li>
+  <li>Cannot access internal class “ThisAssembly” here <a href="https://github.com/devlooped/GitInfo/issues/55">#55</a></li>
+  <li>Commits not counting correctly when base branch is already ahead <a href="https://github.com/devlooped/GitInfo/issues/54">#54</a></li>
+  <li>Examples to increase the counters. <a href="https://github.com/devlooped/GitInfo/issues/49">#49</a></li>
+  <li>Clean up the output by using EchoOff for Exec <a href="https://github.com/devlooped/GitInfo/issues/47">#47</a></li>
+  <li>If no Git found, build should fail <a href="https://github.com/devlooped/GitInfo/issues/46">#46</a></li>
+  <li>HOWTO dotnet core nuget versioning <a href="https://github.com/devlooped/GitInfo/issues/45">#45</a></li>
+  <li>Using GitInfo in a WPF app causes build failure <a href="https://github.com/devlooped/GitInfo/issues/44">#44</a></li>
+  <li>Assembly Metadata IsDirty must be a string <a href="https://github.com/devlooped/GitInfo/issues/43">#43</a></li>
+  <li>Build fails from dotnet publish <a href="https://github.com/devlooped/GitInfo/issues/41">#41</a></li>
+  <li>Templates should have the &lt;auto-generated /&gt; tag as first line <a href="https://github.com/devlooped/GitInfo/issues/39">#39</a></li>
+  <li>packed-refs need be tracked. <a href="https://github.com/devlooped/GitInfo/issues/37">#37</a></li>
+  <li>ThisAssembly.Git.Commit: Information Mis-match <a href="https://github.com/devlooped/GitInfo/issues/33">#33</a></li>
+  <li>VB.Net: Strict Mode <a href="https://github.com/devlooped/GitInfo/issues/32">#32</a></li>
+  <li>Using GitSemVer in TFS builds/releases. <a href="https://github.com/devlooped/GitInfo/issues/29">#29</a></li>
+  <li>Branch names with slashes are chopped <a href="https://github.com/devlooped/GitInfo/issues/27">#27</a></li>
+  <li>Set default value for GitIsDirty <a href="https://github.com/devlooped/GitInfo/issues/23">#23</a></li>
+  <li>Confused about where values come from <a href="https://github.com/devlooped/GitInfo/issues/21">#21</a></li>
+  <li>override ThisAssemblyNamespace <a href="https://github.com/devlooped/GitInfo/issues/20">#20</a></li>
+  <li>Build error with 1.1.32 <a href="https://github.com/devlooped/GitInfo/issues/17">#17</a></li>
+  <li>Usefulness of Git.SemVer.Patch compared to Git.Commits? <a href="https://github.com/devlooped/GitInfo/issues/9">#9</a></li>
+  <li>Cant get it to work on Universal Windows Platform <a href="https://github.com/devlooped/GitInfo/issues/7">#7</a></li>
+  <li>Tag prefix per project possible ? <a href="https://github.com/devlooped/GitInfo/issues/5">#5</a></li>
+  <li>Still -Pre release on nuget? <a href="https://github.com/devlooped/GitInfo/issues/1">#1</a></li>
+</ul>
+
+<p>:twisted_rightwards_arrows: Merged:</p>
+
+<ul>
+  <li>Allow tag and base version customization, flex matching <a href="https://github.com/devlooped/GitInfo/pull/129">#129</a> (@kzu)</li>
+  <li>Prevent tag refs in $(GitBranch) for detached heads. <a href="https://github.com/devlooped/GitInfo/pull/127">#127</a> (@andersforsgren)</li>
+  <li>Add GitCommitsIgnoreMerges option <a href="https://github.com/devlooped/GitInfo/pull/125">#125</a> (@christianerbsmehl)</li>
+  <li>Remove username and password from repository URL <a href="https://github.com/devlooped/GitInfo/pull/123">#123</a> (@sbj42)</li>
+  <li>Add GitCommitDate (#65) <a href="https://github.com/devlooped/GitInfo/pull/121">#121</a> (@nikolamilekic)</li>
+  <li>Use verbatim string literals in C# and F# templates <a href="https://github.com/devlooped/GitInfo/pull/120">#120</a> (@sbj42)</li>
+  <li>Fix GitSemVerPatch always 0 <a href="https://github.com/devlooped/GitInfo/pull/117">#117</a> (@ysc3839)</li>
+  <li>Make the PATCH / GitBaseVersionPatch optional <a href="https://github.com/devlooped/GitInfo/pull/115">#115</a> (@BoBiene)</li>
+  <li>Fix GitThisAssemblyMetadata <a href="https://github.com/devlooped/GitInfo/pull/112">#112</a> (@joacar)</li>
+  <li>Add repository url <a href="https://github.com/devlooped/GitInfo/pull/111">#111</a> (@joacar)</li>
+  <li>fixed #98 <a href="https://github.com/devlooped/GitInfo/pull/110">#110</a> (@pedoc)</li>
+  <li>Turn off signature display when running log <a href="https://github.com/devlooped/GitInfo/pull/102">#102</a> (@kzu)</li>
+  <li>Fix SemVer.Source not working in Visual Basic <a href="https://github.com/devlooped/GitInfo/pull/97">#97</a> (@MobileManiC)</li>
+  <li>F# support <a href="https://github.com/devlooped/GitInfo/pull/93">#93</a> (@ndani14)</li>
+  <li>Don’t cause MSBuild warnings ‘expected’ failures <a href="https://github.com/devlooped/GitInfo/pull/90">#90</a> (@alanmcgovern)</li>
+  <li>Fix incremental build <a href="https://github.com/devlooped/GitInfo/pull/82">#82</a> (@shadow-cs)</li>
+  <li>Reintroduce NormalizeDirectory usage, fix actual error <a href="https://github.com/devlooped/GitInfo/pull/75">#75</a> (@kzu)</li>
+  <li>Ensure we normalize to the correct path separator <a href="https://github.com/devlooped/GitInfo/pull/73">#73</a> (@alanmcgovern)</li>
+  <li>Allow counting all commits in the repository <a href="https://github.com/devlooped/GitInfo/pull/66">#66</a> (@alanmcgovern)</li>
+  <li>Ensuring the GitExe is set when the initial target is not evaluated <a href="https://github.com/devlooped/GitInfo/pull/58">#58</a> (@adalon)</li>
+  <li>Fix for cygwin/WSL and add support for Windows Store WSL distros <a href="https://github.com/devlooped/GitInfo/pull/57">#57</a> (@chkn)</li>
+  <li>Add support for multi-targeting builds to retrieve Git information <a href="https://github.com/devlooped/GitInfo/pull/53">#53</a> (@kzu)</li>
+  <li>v2 <a href="https://github.com/devlooped/GitInfo/pull/52">#52</a> (@kzu)</li>
+  <li>Switch to 2017 image <a href="https://github.com/devlooped/GitInfo/pull/51">#51</a> (@kzu)</li>
+  <li>Use MSBuildRuntimeTime to discern xbuild <a href="https://github.com/devlooped/GitInfo/pull/50">#50</a> (@abock)</li>
+  <li>Don’t do xbuild things on Windows <a href="https://github.com/devlooped/GitInfo/pull/42">#42</a> (@bojanrajkovic)</li>
+  <li>Add &lt;auto-generated /&gt; comments to templates <a href="https://github.com/devlooped/GitInfo/pull/40">#40</a> (@bvli)</li>
+  <li>track packed-refs as refs/heads may be empty when “packed-refs -all” have been used <a href="https://github.com/devlooped/GitInfo/pull/38">#38</a> (@bigbearzhu)</li>
+  <li>VB.Net: Strict Mode, fixes #32 <a href="https://github.com/devlooped/GitInfo/pull/36">#36</a> (@wahmedswl)</li>
+  <li>fixes #32 <a href="https://github.com/devlooped/GitInfo/pull/35">#35</a> (@wahmedswl)</li>
+  <li>Add support for git in WSL <a href="https://github.com/devlooped/GitInfo/pull/31">#31</a> (@chkn)</li>
+  <li>Update documentation (and whitespace) <a href="https://github.com/devlooped/GitInfo/pull/26">#26</a> (@dueringa)</li>
+  <li>Set default value for GitIsDirty in non-repos <a href="https://github.com/devlooped/GitInfo/pull/25">#25</a> (@dueringa)</li>
+  <li>Set default value for GitIsDirty in non-repos <a href="https://github.com/devlooped/GitInfo/pull/24">#24</a> (@dueringa)</li>
+  <li>Added support for worktrees <a href="https://github.com/devlooped/GitInfo/pull/22">#22</a> (@taylorjonl)</li>
+  <li>Update GitInputs list to include branch heads recursively <a href="https://github.com/devlooped/GitInfo/pull/19">#19</a> (@bigbearzhu)</li>
+  <li>add missing close paren breaking markdown link <a href="https://github.com/devlooped/GitInfo/pull/11">#11</a> (@jamesmanning)</li>
+  <li>Fix cygwin support <a href="https://github.com/devlooped/GitInfo/pull/4">#4</a> (@chkn)</li>
+  <li>Untabification of readme.txt <a href="https://github.com/devlooped/GitInfo/pull/3">#3</a> (@atifaziz)</li>
+</ul>
+
+<p>* <em>This Changelog was automatically generated by <a href="https://github.com/github-changelog-generator/github-changelog-generator">github_changelog_generator</a></em></p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">GitInfo maintained by <a href="https://github.com/devlooped">devlooped</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

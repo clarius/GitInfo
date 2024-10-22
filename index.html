@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/GitInfo/assets/css/style.css?v=e2a40698625e7f6bc3335c1049c940f1c9c8b259">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GitInfo | Git and SemVer Info from MSBuild, C# and VB</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="GitInfo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Git and SemVer Info from MSBuild, C# and VB" />
+<meta property="og:description" content="Git and SemVer Info from MSBuild, C# and VB" />
+<meta property="og:site_name" content="GitInfo" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GitInfo" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Git and SemVer Info from MSBuild, C# and VB","headline":"GitInfo","name":"GitInfo","url":"/GitInfo/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/GitInfo/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+            <a id="forkme_banner" href="https://github.com/devlooped/GitInfo">View on GitHub</a>
+          
+
+          <h1 id="project_title">GitInfo</h1>
+          <h2 id="project_tagline">Git and SemVer Info from MSBuild, C# and VB</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="-gitinfo"><img src="https://raw.githubusercontent.com/devlooped/GitInfo/main/assets/images/git.png" alt="Icon" /> GitInfo</h1>
+
+<p>Git Info from MSBuild, C# and VB</p>
+
+<blockquote>
+  <p>A fresh and transparent approach to Git information retrieval from MSBuild and Code without
+using any custom tasks or compiled code and tools, obscure settings, format strings, etc.</p>
+</blockquote>
+
+<p><a href="https://www.nuget.org/packages/GitInfo"><img src="https://img.shields.io/nuget/v/GitInfo.svg" alt="Latest version" /></a>
+<a href="https://www.nuget.org/packages/GitInfo"><img src="https://img.shields.io/nuget/dt/GitInfo.svg" alt="Downloads" /></a>
+<a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/:license-MIT-blue.svg" alt="License" /></a>
+<a href="https://ci.appveyor.com/project/MobileEssentials/gitinfo"><img src="https://ci.appveyor.com/api/projects/status/p9e5xdd86vnfe0q8?svg=true" alt="Build status" /></a></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>After installing via <a href="https://www.nuget.org/packages/GitInfo">NuGet</a>:</p>
+
+<pre><code class="language-pwsh">PM&gt; Install-Package GitInfo
+</code></pre>
+
+<p>By default, if the containing project is a C#, F# or VB project, a compile-time generated
+source file will contain all the git information and can be accessed from anywhere within
+the assembly, as constants in a <code class="language-plaintext highlighter-rouge">ThisAssembly</code> (partial) class and its nested <code class="language-plaintext highlighter-rouge">Git</code> static class:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">Commit</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>NOTE: you may need to close and reopen the solution in order
+for Visual Studio to refresh intellisense and show the
+ThisAssembly type the first time after installing the package.</p>
+</blockquote>
+
+<p>By default, GitInfo will also set <code class="language-plaintext highlighter-rouge">$(Version)</code> and <code class="language-plaintext highlighter-rouge">$(PackageVersion)</code> which the .NET
+SDK uses for deriving the AssemblyInfo, FileVersion and InformationalVersion values,
+as well as for packing. This default version is formatted from the following populated
+MSBuild properties: <code class="language-plaintext highlighter-rouge">$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)+$(GitBranch).$(GitCommit)</code>.</p>
+
+<p>So, straight after install and build/pack, you will get some versioning in place :).</p>
+
+<p>Alternatively, you can opt-out of this default versioning by setting <code class="language-plaintext highlighter-rouge">GitVersion=false</code>
+in your project file, if you want to just leverage the Git information and/or version
+properties/constants yourself:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;PropertyGroup&gt;</span>
+  <span class="nt">&lt;GitVersion&gt;</span>false<span class="nt">&lt;/GitVersion&gt;</span>
+<span class="nt">&lt;/PropertyGroup&gt;</span>
+</code></pre></div></div>
+
+<p>This allows you to use the provided constants to build any versioning attributes you want,
+with whatever information you want, without resorting to settings, format strings or anything,
+just plain code:</p>
+
+<p>C#:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">assembly</span><span class="p">:</span> <span class="nf">AssemblyVersion</span><span class="p">(</span><span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">BaseVersion</span><span class="p">.</span><span class="n">Major</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span> <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">BaseVersion</span><span class="p">.</span><span class="n">Minor</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span> <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">BaseVersion</span><span class="p">.</span><span class="n">Patch</span><span class="p">)]</span>
+
+<span class="p">[</span><span class="n">assembly</span><span class="p">:</span> <span class="nf">AssemblyFileVersion</span><span class="p">(</span><span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">SemVer</span><span class="p">.</span><span class="n">Major</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span> <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">SemVer</span><span class="p">.</span><span class="n">Minor</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span> <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">SemVer</span><span class="p">.</span><span class="n">Patch</span><span class="p">)]</span>
+
+<span class="p">[</span><span class="n">assembly</span><span class="p">:</span> <span class="nf">AssemblyInformationalVersion</span><span class="p">(</span>
+    <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">SemVer</span><span class="p">.</span><span class="n">Major</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span>
+    <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">SemVer</span><span class="p">.</span><span class="n">Minor</span> <span class="p">+</span> <span class="s">"."</span> <span class="p">+</span>
+    <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">Commits</span> <span class="p">+</span> <span class="s">"-"</span> <span class="p">+</span>
+    <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">Branch</span> <span class="p">+</span> <span class="s">"+"</span> <span class="p">+</span>
+    <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Git</span><span class="p">.</span><span class="n">Commit</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>F#:</p>
+<div class="language-fsharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nc">AssemblyInfo</span>
+
+<span class="k">open</span> <span class="nn">System</span><span class="p">.</span><span class="nc">Reflection</span>
+
+<span class="p">[&lt;</span><span class="n">assembly</span><span class="p">:</span> <span class="nc">AssemblyVersion</span><span class="p">(</span><span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">BaseVersion</span><span class="p">.</span><span class="nc">Major</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">BaseVersion</span><span class="p">.</span><span class="nc">Minor</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">BaseVersion</span><span class="p">.</span><span class="nc">Patch</span><span class="o">)&gt;]</span>
+
+<span class="p">[&lt;</span><span class="n">assembly</span><span class="p">:</span> <span class="nc">AssemblyFileVersion</span><span class="p">(</span><span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">SemVer</span><span class="p">.</span><span class="nc">Major</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">SemVer</span><span class="p">.</span><span class="nc">Minor</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">SemVer</span><span class="p">.</span><span class="nc">Patch</span><span class="o">)&gt;]</span>
+
+<span class="p">[&lt;</span><span class="n">assembly</span><span class="p">:</span> <span class="nc">AssemblyInformationalVersion</span><span class="p">(</span>
+    <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">SemVer</span><span class="p">.</span><span class="nc">Major</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span>
+    <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nn">SemVer</span><span class="p">.</span><span class="nc">Minor</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span>
+    <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nc">Commits</span> <span class="o">+</span> <span class="s2">"-"</span> <span class="o">+</span>
+    <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nc">Branch</span> <span class="o">+</span> <span class="s2">"+"</span> <span class="o">+</span>
+    <span class="nn">ThisAssembly</span><span class="p">.</span><span class="nn">Git</span><span class="p">.</span><span class="nc">Commit</span><span class="o">)&gt;]</span>
+
+<span class="k">do</span> <span class="bp">()</span>
+</code></pre></div></div>
+
+<p>VB:</p>
+<pre><code class="language-vbnet">&lt;Assembly: AssemblyVersion(ThisAssembly.Git.BaseVersion.Major + "." + ThisAssembly.Git.BaseVersion.Minor + "." + ThisAssembly.Git.BaseVersion.Patch)&gt;
+
+&lt;Assembly: AssemblyFileVersion(ThisAssembly.Git.SemVer.Major + "." + ThisAssembly.Git.SemVer.Minor + "." + ThisAssembly.Git.SemVer.Patch)&gt;
+
+&lt;Assembly: AssemblyInformationalVersion(
+    ThisAssembly.Git.SemVer.Major + "." +
+    ThisAssembly.Git.SemVer.Minor + "." +
+    ThisAssembly.Git.Commits + "-" +
+    ThisAssembly.Git.Branch + "+" +
+    ThisAssembly.Git.Commit)&gt;
+</code></pre>
+
+<blockquote>
+  <p>NOTE: when generating your own assembly version attributes, you will need to turn off
+the corresponding assembly version attribute generation from the .NET SDK, by setting
+the relevant properties to false: <code class="language-plaintext highlighter-rouge">GenerateAssemblyVersionAttribute</code>,
+<code class="language-plaintext highlighter-rouge">GenerateAssemblyFileVersionAttribute</code> and <code class="language-plaintext highlighter-rouge">GenerateAssemblyInformationalVersionAttribute</code>.</p>
+</blockquote>
+
+<p>MSBuild:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;PropertyGroup&gt;</span>
+  <span class="nt">&lt;GitVersion&gt;</span>false<span class="nt">&lt;/GitVersion&gt;</span> <span class="c">&lt;!-- we'll do our own versioning --&gt;</span>
+<span class="nt">&lt;/PropertyGroup&gt;</span>
+
+<span class="nt">&lt;ItemGroup&gt;</span>
+  <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"GitInfo"</span> <span class="na">PrivateAssets=</span><span class="s">"all"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ItemGroup&gt;</span>
+
+<span class="nt">&lt;Target</span> <span class="na">Name=</span><span class="s">"PopulateInfo"</span> <span class="na">DependsOnTargets=</span><span class="s">"GitVersion"</span> <span class="na">BeforeTargets=</span><span class="s">"GetAssemblyVersion;GenerateNuspec;GetPackageContents"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;Version&gt;</span>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)+$(GitBranch).$(GitCommit)<span class="nt">&lt;/Version&gt;</span>
+    <span class="nt">&lt;PackageVersion&gt;</span>$(Version)<span class="nt">&lt;/PackageVersion&gt;</span>
+    <span class="nt">&lt;RepositoryBranch&gt;</span>$(GitBranch)<span class="nt">&lt;/RepositoryBranch&gt;</span>
+    <span class="nt">&lt;RepositoryCommit&gt;</span>$(GitCommit)<span class="nt">&lt;/RepositoryCommit&gt;</span>
+    <span class="nt">&lt;SourceRevisionId&gt;</span>$(GitBranch) $(GitCommit)<span class="nt">&lt;/SourceRevisionId&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+<span class="nt">&lt;/Target&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>NOTE: because the provided properties are populated via targets that need to run
+before they are available, you cannot use the GitInfo-provided properties in a
+PropertyGroup at the project level. You can only use them from within a target that
+in turn depends on the relevant target from GitInfo (typically, <code class="language-plaintext highlighter-rouge">GitVersion</code> as
+shown above, if you consume the SemVer properties).</p>
+</blockquote>
+
+<p>Because this information is readily available whenever you build the project, you
+never depend on CI build scripts that generate versions for you, and you can
+always compile locally exactly the same version of an assembly that was built by
+a CI server.</p>
+
+<p>You can read more about this project at the
+<a href="http://www.cazzulino.com/git-info-from-msbuild-and-code.html">GitInfo announcement blog post</a>.</p>
+
+<h2 id="details">Details</h2>
+
+<p>Exposes the following information for use directly from any MSBuild
+target that depends on the GitInfo target:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $(GitRepositoryUrl)
+  $(GitBranch)
+  $(GitCommit)
+  $(GitCommitDate)
+  $(GitCommits)
+  $(GitTag)
+  $(GitBaseTag)
+  $(GitBaseVersionMajor)
+  $(GitBaseVersionMinor)
+  $(GitBaseVersionPatch)
+  $(GitSemVerMajor)
+  $(GitSemVerMinor)
+  $(GitSemVerPatch)
+  $(GitSemVerLabel)
+  $(GitSemVerDashLabel)
+  $(GitSemVerSource)
+  $(GitIsDirty)
+</code></pre></div></div>
+
+<p>For C#, F# and VB, constants are generated too so that the same information can be
+accessed from code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ThisAssembly.Git.RepositoryUrl
+  ThisAssembly.Git.Branch
+  ThisAssembly.Git.Commit
+  ThisAssembly.Git.Commits
+  ThisAssembly.Git.Tag
+  ThisAssembly.Git.BaseTag
+  ThisAssembly.Git.BaseVersion.Major
+  ThisAssembly.Git.BaseVersion.Minor
+  ThisAssembly.Git.BaseVersion.Patch
+  ThisAssembly.Git.SemVer.Major
+  ThisAssembly.Git.SemVer.Minor
+  ThisAssembly.Git.SemVer.Patch
+  ThisAssembly.Git.SemVer.Label
+  ThisAssembly.Git.SemVer.DashLabel
+  ThisAssembly.Git.SemVer.Source
+  ThisAssembly.Git.IsDirty
+</code></pre></div></div>
+
+<p>Available <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-properties">MSBuild properties</a>
+to customize the behavior:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $(GitVersion): set to 'false' to avoid setting Version and PackageVersion to a default version with format:
+                 $(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)+$(GitBranch).$(GitCommit)
+
+  $(GitThisAssembly): set to 'false' to prevent assembly metadata and constants generation.
+
+  $(GitThisAssemblyMetadata): set to 'false' to prevent assembly metadata generation only. Defaults to 'false'.
+                              If 'true', it will also provide assembly metadata attributes for each of the populated values.
+
+  $(ThisAssemblyNamespace): allows overriding the namespace for the ThisAssembly class. Defaults to the global namespace.
+
+  $(GitRemote): name of remote to get repository url for. Defaults to 'origin'.
+
+  $(GitDefaultBranch): determines the base branch used to calculate commits on top of current branch. Defaults to 'main'.
+
+  $(GitVersionFile): determines the name of a file in the Git repository root used to provide the base version info. Defaults to 'GitInfo.txt'.
+
+  $(GitCommitsRelativeTo): optionally specifies an alternative directory for counting commits on top of the base version. Defaults to the $(GitVersionFile) directory.
+
+  $(GitCommitsIgnoreMerges): set to 'true' to ignore merge commits when calculating the number of commits. Defaults to 'false'.
+
+  $(GitInfoReportImportance): allows rendering all the retrieved git information with the specified message importance ('high', 'normal' or 'low'). Defaults to 'low'.
+
+  $(GitIgnoreBranchVersion) and $(GitIgnoreTagVersion): determines whether the branch and tags (if any) will be used to find a base version. Defaults to empty value (no ignoring).
+
+  $(GitNameRevOptions): options passed to git name-rev when finding a branch name for a commit (Detached head). The default is '--refs=refs/heads/* --no-undefined --always'
+                        meaning branch names only, falling back to commit hash. For the legacy behavior where $(GitBranch) for detached head can also be a tag name, use '--refs=refs/*'.
+                        Refs can be included and excluded, see git name-rev docs.
+
+  $(GitSkipCache): whether to cache the Git information determined in a previous build in a GitInfo.cache for performance reasons. Defaults to empty value (no ignoring).
+
+  $(GitCachePath): where to cache the determined Git information. Gives the chance to use a shared location for different projects. This can improve the overall build time.
+                   Has to end with a path seperator Defaults to empty value ('$(IntermediateOutputPath)').
+
+  $(GitTagRegex): regular expression used with git describe to filter the tags to consider for base version lookup. Defaults to * (all).
+
+  $(GitBaseVersionRegex): regular expression used to match and validate valid base versions in branch, tag or file sources. By default, matches any string that *ends* in a valid SemVer2 string.
+                          Defaults to 'v?(?&lt;MAJOR&gt;\d+)\.(?&lt;MINOR&gt;\d+)\.(?&lt;PATCH&gt;\d+)(?:\-(?&lt;LABEL&gt;[\dA-Za-z\-\.]+))?$|^(?&lt;LABEL&gt;[\dA-Za-z\-\.]+)\-v?(?&lt;MAJOR&gt;\d+)\.(?&lt;MINOR&gt;\d+)\.(?&lt;PATCH&gt;\d+)$'
+
+  $(GitCommitDateFormat): value passed as the format option when trying to retrieve the git commit date. Defaults to %%cI (windows) or %cI (non windows).
+</code></pre></div></div>
+
+<h2 id="goals">Goals</h2>
+
+<ul>
+  <li>No compiled code or tools -&gt; 100% transparency</li>
+  <li>Trivially added/installed via <a href="https://www.nuget.org/packages/GitInfo">a NuGet package</a></li>
+  <li>No format strings or settings to learn</li>
+  <li>Simple well-structured <a href="https://github.com/kzu/GitInfo/blob/main/src/GitInfo/build/GitInfo.targets">.targets file</a>
+with plain MSBuild and no custom tasks</li>
+  <li><a href="https://github.com/kzu/GitInfo/blob/main/src/GitInfo/build/GitInfo.AssemblyMetadata.targets">Optional embedding</a>
+of Git info in assembly metadata</li>
+  <li>Optional use of Git info to build arbitrary assembly/file version information, both
+<a href="https://github.com/kzu/GitInfoDemo/blob/main/GitInfoDemo/Properties/AssemblyInfo.cs#L10">in C#</a> as well
+<a href="https://github.com/kzu/GitInfoDemo/blob/main/GitInfoDemoVB/My%20Project/AssemblyInfo.vb#L8">as VB</a>.</li>
+  <li>Trivially modified/improved generated code by just adjusting a
+<a href="https://github.com/kzu/GitInfo/blob/main/src/GitInfo/build/GitInfo.cs.pp">C#</a> or
+<a href="https://github.com/kzu/GitInfo/blob/main/src/GitInfo/build/GitInfo.fs.pp">F#</a> or
+<a href="https://github.com/kzu/GitInfo/blob/main/src/GitInfo/build/GitInfo.vb.pp">VB</a> template
+included in the <a href="https://www.nuget.org/packages/GitInfo">NuGet package</a></li>
+  <li>100% incremental build-friendly and high-performing (all proper Inputs/Outputs in place, smart caching of Git info, etc.)</li>
+</ul>
+
+<!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
+<h1 id="sponsors">Sponsors</h1>
+
+<!-- sponsors.md -->
+<p><a href="https://github.com/clarius"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/clarius.png" alt="Clarius Org" title="Clarius Org" /></a>
+<a href="https://github.com/KirillOsenkov"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/KirillOsenkov.png" alt="Kirill Osenkov" title="Kirill Osenkov" /></a>
+<a href="https://github.com/MFB-Technologies-Inc"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/MFB-Technologies-Inc.png" alt="MFB Technologies, Inc." title="MFB Technologies, Inc." /></a>
+<a href="https://github.com/torutek-gh"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/torutek-gh.png" alt="Torutek" title="Torutek" /></a>
+<a href="https://github.com/drivenet"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/drivenet.png" alt="DRIVE.NET, Inc." title="DRIVE.NET, Inc." /></a>
+<a href="https://github.com/Keflon"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Keflon.png" alt="Keith Pickford" title="Keith Pickford" /></a>
+<a href="https://github.com/tbolon"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/tbolon.png" alt="Thomas Bolon" title="Thomas Bolon" /></a>
+<a href="https://github.com/kfrancis"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/kfrancis.png" alt="Kori Francis" title="Kori Francis" /></a>
+<a href="https://github.com/twenzel"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/twenzel.png" alt="Toni Wenzel" title="Toni Wenzel" /></a>
+<a href="https://github.com/unoplatform"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/unoplatform.png" alt="Uno Platform" title="Uno Platform" /></a>
+<a href="https://github.com/dansiegel"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/dansiegel.png" alt="Dan Siegel" title="Dan Siegel" /></a>
+<a href="https://github.com/rbnswartz"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/rbnswartz.png" alt="Reuben Swartz" title="Reuben Swartz" /></a>
+<a href="https://github.com/jfoshee"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/jfoshee.png" alt="Jacob Foshee" title="Jacob Foshee" /></a>
+<a href="https://github.com/eajhnsn1"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Mrxx99.png" alt="" title="&quot;)](https://github.com/Mrxx99)
+[![Eric Johnson](https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/eajhnsn1.png &quot;Eric Johnson" /></a>
+<a href="https://github.com/IxTechnologies"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/IxTechnologies.png" alt="Ix Technologies B.V." title="Ix Technologies B.V." /></a>
+<a href="https://github.com/davidjenni"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/davidjenni.png" alt="David JENNI" title="David JENNI" /></a>
+<a href="https://github.com/Jonathan-Hickey"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Jonathan-Hickey.png" alt="Jonathan " title="Jonathan " /></a>
+<a href="https://github.com/akunzai"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/akunzai.png" alt="Charley Wu" title="Charley Wu" /></a>
+<a href="https://github.com/jakobt"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/jakobt.png" alt="Jakob Tikjøb Andersen" title="Jakob Tikjøb Andersen" /></a>
+<a href="https://github.com/seanalexander"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/seanalexander.png" alt="Seann Alexander" title="Seann Alexander" /></a>
+<a href="https://github.com/tinohager"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/tinohager.png" alt="Tino Hager" title="Tino Hager" /></a>
+<a href="https://github.com/ploeh"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/ploeh.png" alt="Mark Seemann" title="Mark Seemann" /></a>
+<a href="https://github.com/KenBonny"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/KenBonny.png" alt="Ken Bonny" title="Ken Bonny" /></a>
+<a href="https://github.com/SimonCropp"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/SimonCropp.png" alt="Simon Cropp" title="Simon Cropp" /></a>
+<a href="https://github.com/agileworks-eu"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/agileworks-eu.png" alt="agileworks-eu" title="agileworks-eu" /></a>
+<a href="https://github.com/sorahex"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/sorahex.png" alt="sorahex" title="sorahex" /></a>
+<a href="https://github.com/arsdragonfly"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/arsdragonfly.png" alt="Zheyu Shen" title="Zheyu Shen" /></a>
+<a href="https://github.com/vezel-dev"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/vezel-dev.png" alt="Vezel" title="Vezel" /></a>
+<a href="https://github.com/ChilliCream"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/ChilliCream.png" alt="ChilliCream" title="ChilliCream" /></a>
+<a href="https://github.com/4OTC"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/4OTC.png" alt="4OTC" title="4OTC" /></a>
+<a href="https://github.com/v-limo"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/v-limo.png" alt="Vincent Limo" title="Vincent Limo" /></a></p>
+
+<!-- sponsors.md -->
+
+<p><a href="https://github.com/sponsors/devlooped"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/sponsor.png" alt="Sponsor this project" title="Sponsor this project" /></a>
+ </p>
+
+<p><a href="https://github.com/sponsors">Learn more about GitHub Sponsors</a></p>
+
+<!-- https://github.com/devlooped/sponsors/raw/main/footer.md -->
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">GitInfo maintained by <a href="https://github.com/devlooped">devlooped</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
